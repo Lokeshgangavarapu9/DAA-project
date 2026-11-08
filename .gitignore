@@ -1,0 +1,14 @@
+# Editor
+.vscode/
+.idea/
+
+# Binaries & Compiled Files
+*.exe
+*.o
+*.obj
+*.out
+kmp_backend
+
+# OS files
+.DS_Store
+Thumbs.db

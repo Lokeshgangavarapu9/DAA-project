@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KMP Trainer - Real-time Threat Detection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="brand-badge">⚡</div>
+    <div class="brand-info">
+      <h1>KMP Trainer</h1>
+      <span class="sub">KMP Only • DAA + AI</span>
+    </div>
+  </div>
+  <nav>
+    <button data-tab="problem" class="on">Problem</button>
+    <button data-tab="round">Obstacle Round</button>
+    <button data-tab="bench">Benchmarks</button>
+  </nav>
+</header>
+<main>
+  <section id="problem"></section>
+  <section id="round" hidden>
+    <div class="bar">
+      <div id="models" class="seg"></div>
+      <button id="run" class="primary">Run ▶</button>
+    </div>
+    <p id="status" class="status">Pick a model, then press Run.</p>
+    <div id="boxes" class="boxes"></div>
+    <p class="foot">Demo models. Each attempt is a random draw weighted by the pass rates measured by the C backend.</p>
+  </section>
+  <section id="bench" hidden></section>
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
