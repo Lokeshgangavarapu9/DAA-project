@@ -37,13 +37,19 @@ The AI agent must learn which patterns to search **first** so that KMP locates t
 ## Project Structure
 
 ```
-├── main.c        # C simulation backend benchmarking KMP vs Naive search
-├── problem.h     # Problem definition, threat signatures, and weights
-├── data.js       # Generated metrics and obstacle configurations
-├── app.js        # Interactive simulation controller and auto-retry engine
-├── style.css     # Academic dashboard styling
-├── index.html    # Single-page application shell
-└── README.md     # Documentation
+├── frontend/
+│   ├── index.html     # Single-page application shell
+│   ├── style.css      # Academic dashboard styling
+│   ├── app.js         # Interactive simulation controller & auto-retry engine
+│   └── data.js        # Generated metrics and obstacle configurations
+├── backend/
+│   ├── main.c         # C simulation backend benchmarking KMP vs Naive search
+│   └── problem.h      # Problem definition, threat signatures, and weights
+├── vercel.json        # Static routing configuration for Vercel
+├── .vercelignore      # Files excluded from Vercel deployment
+├── .gitignore         # Git ignore rules
+├── DEPLOY.md          # Manual Vercel deployment instructions
+└── README.md          # Project documentation
 ```
 
 ---
@@ -52,13 +58,14 @@ The AI agent must learn which patterns to search **first** so that KMP locates t
 
 ### 1. Compile and Run the C Backend (Optional to regenerate data)
 ```bash
+cd backend
 gcc -o kmp_backend main.c
 ./kmp_backend
 ```
 
-### 2. Launch the Web Dashboard
-Serve the directory with any standard HTTP server:
+### 2. Launch the Web Dashboard Locally
+Serve the `frontend/` directory with any standard HTTP server:
 ```bash
-python -m http.server 8080
+python -m http.server 8080 --directory frontend
 ```
 Open `http://localhost:8080` in your web browser.

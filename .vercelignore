@@ -1,0 +1,5 @@
+backend/
+*.o
+kmp_backend
+*.exe
+.DS_Store
