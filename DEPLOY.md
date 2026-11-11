@@ -11,3 +11,4 @@ Follow these steps to deploy the project on Vercel:
    - **Build Command**: *(leave empty)*
    - **Output Directory**: *(leave empty)*
 5. Click **Deploy**.
+

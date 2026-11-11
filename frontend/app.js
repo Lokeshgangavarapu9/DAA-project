@@ -8,7 +8,7 @@ var MODELS = [
 var model = 1, attempts = [], running = false, timer = null, retryCounts = [0, 0, 0];
 
 function $(id) { return document.getElementById(id); }
-function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+function pick(a) { return (a && a.length) ? a[Math.floor(Math.random() * a.length)] : 0; }
 function avg(a) { var s = 0, i; for (i = 0; i < a.length; i++) s += a[i]; return a.length ? s / a.length : 0; }
 function pct(n, d) { return d ? Math.round(n * 100 / d) : 0; }
 function letter() { return String.fromCharCode(65 + Math.floor(Math.random() * 26)); }
@@ -95,7 +95,7 @@ function runStage(j) {
   var pass = Math.random() < p, threat = threatName(), line = makeLine(threat, j === 0);
   var reason = pass ? "" : (Math.random() < 0.5 ? "budget" : "missed");
   var cost = pass ? Math.min(pick(o.kmp), o.budget - 1) : (reason === "budget" ? o.budget : Math.round(o.budget * (0.8 + Math.random() * 0.2)));
-  var naive = pass ? pick(o.naive) : cost;
+  var naive = pass ? ((o.naive && o.naive.length) ? pick(o.naive) : Math.round(cost * (j === 0 ? 2.4 : 1.5))) : cost;
   var end = pass ? line.pos + line.len : (reason === "budget" ? Math.floor(120 * (0.45 + Math.random() * 0.35)) : 120);
   var ticks = 38 + Math.floor(Math.random() * 22), t = 0;
   running = true; $("run").disabled = true; renderModels();
